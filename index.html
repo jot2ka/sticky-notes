@@ -17,7 +17,7 @@
 				<h1 class="header__title">
 					<a href="#">
 						<i class="fas fa-sticky-note"></i>
-						<span>sticky</span>notes
+						sticky<span>notes</span>
 					</a>
 				</h1>
 				<div class="header__btns">
@@ -25,6 +25,28 @@
 					<button><i class="fas fa-question"></i></button>
 				</div>
 			</header>
+			<ul class="note-container">
+				<template class="note-template">
+					<li class="note">
+						<div class="note__header">
+							<h3 class="note__header-title"></h3>
+							<div class="note__header-btns">
+								<button>
+									<i class="fas fa-times"></i>
+								</button>
+							</div>
+						</div>
+						<div class="note__body"></div>
+					</li>
+				</template>
+				<template class="note-add-template">
+					<li class="note note--add">
+						<button>
+							<i class="fas fa-plus"></i>
+						</button>
+					</li>
+				</template>
+			</ul>
 		</div>
 	</body>
 </html>
