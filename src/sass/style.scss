@@ -114,7 +114,7 @@ body {
 			}
 
 			&-btns {
-				button {
+				.btn {
 					margin-left: 4px;
 					padding: 4px;
 					background: none;
@@ -153,7 +153,6 @@ body {
 			align-items: center;
 			background-color: transparent;
 			border: 2px solid $light-gray;
-			opacity: 100%;
 			transition: border 0.3s;
 
 			button {
@@ -182,67 +181,77 @@ body {
 	}
 }
 
-.note-modal {
+.note-modal-shadow {
 	display: none;
-	align-items: center;
-	flex-direction: column;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80%;
-	max-width: 600px;
-	max-height: 80%;
-	padding: 20px 10px;
-	border-radius: 8px;
-	background-color: #fff;
-	box-shadow: 0px 0px 8px $black;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
 
-	&__header {
-		font-size: 2.6rem;
-		font-weight: 300;
-		margin-bottom: 16px;
-	}
-
-	&__category,
-	&__textarea {
-		width: 90%;
-		max-width: 90%;
-		min-width: 90%;
-		max-height: 600px;
-		padding: 8px 16px;
-		font-size: 1.4rem;
-		border-radius: 8px;
-		border: 1px solid $black;
-	}
-
-	&__textarea {
-		margin-top: 16px;
-		min-height: 100px;
-	}
-
-	&__error {
-		margin: 8px 0;
-		font-size: 1.4rem;
-		color: red;
-		visibility: hidden;
-	}
-
-	&__buttons {
+	.note-modal {
 		display: flex;
-		gap: 8px;
-		.save,
-		.cancel {
-			padding: 8px 16px;
-			background: none;
-			border: 1px solid $black;
-			border-radius: 8px;
-			cursor: pointer;
-			transition: background-color 0.3s, color 0.3s;
+		align-items: center;
+		flex-direction: column;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+		max-width: 600px;
+		max-height: 80%;
+		padding: 20px 10px;
+		border-radius: 8px;
+		background-color: #fff;
+		box-shadow: 0px 0px 8px $black;
 
-			&:hover {
-				background-color: $gray;
-				color: $white;
+		&__header {
+			font-size: 2.6rem;
+			font-weight: 300;
+			margin-bottom: 16px;
+		}
+
+		&__category,
+		&__textarea {
+			width: 90%;
+			max-width: 90%;
+			min-width: 90%;
+			max-height: 600px;
+			padding: 8px 16px;
+			font-size: 1.4rem;
+			border-radius: 8px;
+			border: 1px solid $black;
+		}
+
+		&__textarea {
+			margin-top: 16px;
+			min-height: 100px;
+		}
+
+		&__error {
+			margin: 8px 0;
+			font-size: 1.4rem;
+			color: red;
+			visibility: hidden;
+		}
+
+		&__buttons {
+			display: flex;
+			gap: 8px;
+			.save,
+			.cancel {
+				padding: 8px 16px;
+				background: none;
+				border: 1px solid $black;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: background-color 0.3s, color 0.3s;
+
+				&:hover {
+					background-color: $gray;
+					color: $white;
+				}
 			}
 		}
 	}

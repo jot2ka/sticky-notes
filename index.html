@@ -31,7 +31,7 @@
 						<div class="note__header">
 							<h3 class="note__header-title"></h3>
 							<div class="note__header-btns">
-								<button>
+								<button class="btn delete">
 									<i class="fas fa-times"></i>
 								</button>
 							</div>
@@ -41,36 +41,39 @@
 				</template>
 				<template class="note-add-template">
 					<li class="note note--add">
-						<button>
+						<button class="add">
 							<i class="fas fa-plus"></i>
 						</button>
 					</li>
 				</template>
 			</ul>
-			<div class="note-modal">
-				<h2 class="note-modal__header">create a note</h2>
-				<select
-					id="category"
-					class="note-modal__category"
-					onchange="selectValue()"
-				>
-					<option value="0" disabled selected>- select a category -</option>
-					<option value="1">shopping</option>
-					<option value="1">work</option>
-					<option value="1">science</option>
-					<option value="1">other</option>
-				</select>
-				<textarea
-					id="text"
-					class="note-modal__textarea"
-					placeholder="enter a text"
-				></textarea>
-				<p class="note-modal__error">complete all fields</p>
-				<div class="note-modal__buttons">
-					<button class="save">save</button>
-					<button class="cancel">cancel</button>
+			<div class="note-modal-shadow">
+				<div class="note-modal">
+					<h2 class="note-modal__header">create a note</h2>
+					<select
+						id="category"
+						class="note-modal__category"
+						onchange="selectValue()"
+					>
+						<option value="0" disabled selected>- select a category -</option>
+						<option value="1">shopping</option>
+						<option value="1">work</option>
+						<option value="1">science</option>
+						<option value="1">other</option>
+					</select>
+					<textarea
+						id="text"
+						class="note-modal__textarea"
+						placeholder="enter a text"
+					></textarea>
+					<p class="note-modal__error">complete all fields</p>
+					<div class="note-modal__buttons">
+						<button class="save">save</button>
+						<button class="cancel">cancel</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<script src="src/js/script.js"></script>
 	</body>
 </html>
