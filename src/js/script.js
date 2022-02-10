@@ -5,15 +5,34 @@ const noteContainer = document.querySelector('.note-container');
 const noteModal = document.querySelector('.note-modal-shadow');
 const textarea = document.querySelector('#text');
 const error = document.querySelector('.note-modal__error');
+const categoryList = document.querySelector('.note-modal__category');
 
 const noteTemplate = document.querySelector('.note-template');
 const noteAddTemplate = document.querySelector('.note-add-template');
+
+const categories = [
+	{ name: 'shopping', color: '#d9a619' },
+	{ name: 'work', color: '#19d963' },
+	{ name: 'science', color: '#b319d9' },
+	{ name: 'other', color: '' },
+];
 
 let selectedValue;
 
 const selectValue = () => {
 	selectedValue = category.options[category.selectedIndex].text;
 };
+
+const fillCategories = () => {
+	categories.forEach(item => {
+		const category = document.createElement('option');
+		category.setAttribute('value', 1);
+		category.textContent = item.name;
+		categoryList.appendChild(category);
+	});
+};
+
+fillCategories();
 
 const openNoteModal = () => {
 	noteModal.style.display = 'block';
@@ -79,6 +98,16 @@ const deleteNote = id => {
 	render();
 };
 
+const setColor = category => {
+	let color;
+	categories.forEach(item => {
+		if (category === item.name) {
+			color = item.color;
+		}
+	});
+	return color;
+};
+
 const renderNotes = () => {
 	const notes = localStorage.getItem('notes');
 	const notesArr = notes ? JSON.parse(notes) : null;
@@ -88,14 +117,16 @@ const renderNotes = () => {
 	if (notesArr) {
 		for (let i = 0; i < notesArr.length; i++) {
 			const newNote = noteTemplate.content.cloneNode(true);
+			const category = notesArr[i].category;
 
 			newNote.querySelector('.note').setAttribute('id', i);
-			newNote.querySelector('.note__header-title').textContent =
-				notesArr[i].category;
+			newNote.querySelector('.note__header-title').textContent = category;
 			newNote.querySelector('.note__body').textContent = notesArr[i].text;
 			newNote
 				.querySelector('.delete')
 				.setAttribute('onclick', `deleteNote(${i})`);
+
+			newNote.querySelector('.note').style.backgroundColor = setColor(category);
 
 			noteContainer.appendChild(newNote);
 		}
