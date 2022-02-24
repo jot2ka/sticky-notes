@@ -1,30 +1,30 @@
-const saveBtn = document.querySelector('.save');
-const cancelBtn = document.querySelector('.cancel');
-
 const noteContainer = document.querySelector('.note-container');
-const noteModal = document.querySelector('.note-modal-shadow');
-const textarea = document.querySelector('#text');
-const error = document.querySelector('.note-modal__error');
-const categoryList = document.querySelector('.note-modal__category');
 
 const noteTemplate = document.querySelector('.note-template');
 const noteAddTemplate = document.querySelector('.note-add-template');
 
-const categories = [
-	{ name: 'shopping', color: '#d9a619' },
-	{ name: 'work', color: '#19d963' },
-	{ name: 'science', color: '#b319d9' },
-	{ name: 'other', color: '' },
-];
+const noteModal = document.querySelector('.note-modal-shadow');
+const categoryList = document.querySelector('.note-modal__category');
+const textarea = document.querySelector('.note-modal__textarea');
+const error = document.querySelector('.note-modal__error');
+const saveNoteModal = document.querySelector('.note-modal-save');
+const cancelNoteModal = document.querySelector('.note-modal-cancel');
 
 let selectedValue;
+
+const categoriesArr = [
+	{ name: 'shopping', color: '#F95860' },
+	{ name: 'work', color: '#FFD270' },
+	{ name: 'science', color: '#8AED9D' },
+	{ name: 'other', color: '#19AAD9' },
+];
 
 const selectValue = () => {
 	selectedValue = category.options[category.selectedIndex].text;
 };
 
 const fillCategories = () => {
-	categories.forEach(item => {
+	categoriesArr.forEach(item => {
 		const category = document.createElement('option');
 		category.setAttribute('value', 1);
 		category.textContent = item.name;
@@ -98,9 +98,14 @@ const deleteNote = id => {
 	render();
 };
 
+const deleteAllNotes = () => {
+	localStorage.setItem('notes', null);
+	render();
+};
+
 const setColor = category => {
 	let color;
-	categories.forEach(item => {
+	categoriesArr.forEach(item => {
 		if (category === item.name) {
 			color = item.color;
 		}
@@ -146,5 +151,5 @@ const render = () => {
 
 render();
 
-cancelBtn.addEventListener('click', closeNoteModal);
-saveBtn.addEventListener('click', validateNote);
+cancelNoteModal.addEventListener('click', closeNoteModal);
+saveNoteModal.addEventListener('click', validateNote);
